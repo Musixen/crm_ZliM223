@@ -19,7 +19,7 @@ public class WebSecurityConfiguration
 	
 	public WebSecurityConfiguration(
 			BCryptPasswordEncoder passwordEncoder,
-			UserDetailsService userDetailsService)
+			@Qualifier("userDetailsSeviceImpl") UserDetailsService userDetailsService)
 	{
 		this.userDetailsService = userDetailsService;
 		this.passwordEncoder = passwordEncoder;

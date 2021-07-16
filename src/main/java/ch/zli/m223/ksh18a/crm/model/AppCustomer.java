@@ -1,6 +1,7 @@
 package ch.zli.m223.ksh18a.crm.model;
 
 
+import java.util.Collection;
 import java.util.List;
 
 public interface AppCustomer {
@@ -12,6 +13,6 @@ public interface AppCustomer {
 
     String getCity();
 
-    //Collection<Memo> getMemos();
+    Collection<AppMemo> getMemos();
 
 }

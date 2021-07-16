@@ -11,7 +11,7 @@ public class AppMemoImpl implements AppMemo{
     @GeneratedValue
     private Long id;
 
-    private long coverage;
+    private long memoDate;
     private String noteText;
 
     @ManyToOne
@@ -24,14 +24,14 @@ public class AppMemoImpl implements AppMemo{
     }
 
     public AppMemoImpl() {
-        coverage = new Date().getTime();
+        memoDate = new Date().getTime();
     }
 
     @Override public Long getId(){
         return id;
     }
     @Override public Date getCoverageDate(){
-        return new Date(coverage);
+        return new Date(memoDate);
     }
     @Override public String getNote(){
         return noteText;
@@ -45,7 +45,7 @@ public class AppMemoImpl implements AppMemo{
     }
 
     public void setDate(Date date){
-        coverage = date.getTime();
+        memoDate = date.getTime();
     }
 
 
@@ -76,6 +76,6 @@ public class AppMemoImpl implements AppMemo{
 
     @Override
     public String toString() {
-        return "MemoImpl [id=" + id + ", coverage=" + coverage + ", noteText=" + noteText + "]";
+        return "MemoImpl [id=" + id + ", coverage=" + memoDate + ", noteText=" + noteText + "]";
     }
 }

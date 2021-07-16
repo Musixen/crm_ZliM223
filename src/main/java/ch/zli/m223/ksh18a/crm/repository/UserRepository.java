@@ -3,6 +3,7 @@ package ch.zli.m223.ksh18a.crm.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import ch.zli.m223.ksh18a.crm.model.AppUser;
@@ -15,6 +16,7 @@ public interface UserRepository
 		return save(new AppUserImpl(userName, password, roles));
 	}
 
+	@Query("SELECT u FROM User u WHERE u.userName = ?1")
 	Optional<AppUser> findByUserName(String userName);
 
 	default AppUser setRoles(AppUser user, List<String> roles) {

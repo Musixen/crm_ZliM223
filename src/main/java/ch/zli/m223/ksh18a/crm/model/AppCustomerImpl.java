@@ -19,6 +19,16 @@ public class AppCustomerImpl implements AppCustomer {
             cascade = CascadeType.REMOVE)
     private List<AppMemoImpl> memos;
 
+    public AppCustomerImpl() {}
+
+    public AppCustomerImpl(String name, String street, String city) {
+        this();
+        this.name = name;
+        this.street = street;
+        this.city = city;
+        memos = new ArrayList<>();
+    }
+
     public void addMemo(AppMemoImpl memo) {
         memos.add(memo);
     }
@@ -48,6 +58,7 @@ public class AppCustomerImpl implements AppCustomer {
     }
 
 
+    @Override
     public Collection<AppMemo> getMemos() {
         ArrayList<AppMemo> res = new ArrayList<AppMemo>(memos);
         Collections.sort(res, new Comparator<AppMemo>() {
